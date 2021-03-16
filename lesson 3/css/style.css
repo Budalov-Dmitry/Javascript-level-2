@@ -1,0 +1,17 @@
+.goods-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.header {
+    height: 50px;
+    background-color: burlywood;
+}
+
+.goods-item {
+    border: 1px solid black;
+    width: 16%;
+    height: 250px;
+    display: flex;
+    justify-content: space-around;
+}
