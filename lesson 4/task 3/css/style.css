@@ -1,0 +1,19 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+}
+
+input {
+    outline: 0;
+}
+
+.form-input__valid {
+    border: 2px solid green;
+}
+
+.form-input__invalid {
+    border: 2px solid red;
+}
