@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eShop</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <button class="cart-button" type="button" v-on:click="showCart">Корзина</button>
+      <div v-if="cartVisible" class="cart">
+
+        <div class="cart__item" v-for="(good, index) in cartGoods">
+          <ul>
+            <li><a href="#"><img src="img/1.jpg" width="180" height="180" alt="foto"></a></li>
+            <li>{{good.title}}</li>
+            <li>{{good.price}} руб</li>
+            <li><button :data-index="index" v-on:click="removeFromCart">Удалить</button></li>
+          </ul>
+
+        </div>
+
+        <h3>Общая стоимость {{totalPrice}}</h3>
+
+      </div>
+
+      <button v-on:click="removeAllCart">Очистить корзину</button>
+
+    </header>
+
+    <main>
+      <input id="search" v-model="search" v-on:input="searchHandler"> поиск товаров
+
+      <div class="goods-list">
+
+        <div class="goods-item" v-for="(good, index) in filtredGoods">
+
+          <ul>
+            <li><a href="#"><img src="img/1.jpg" width="180" height="180" alt="foto"></a></li>
+            <li>{{good.title}}</li>
+            <li>{{good.price}} руб</li>
+            <li><button :data-index="index" v-on:click="addToCart">Добавить</button></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>  
+  <script src="script.js"></script>
+</body>
+</html>
