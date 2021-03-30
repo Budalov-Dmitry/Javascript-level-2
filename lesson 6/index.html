@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eShop</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <cart > 
+        <goods-item 
+          v-for="good in cartGoods" 
+          v-bind:title="good.title" 
+          v-bind:price="good.price"
+          v-bind:id="good.id"
+          v-on:add="removeFromCart"
+          >Удалить</goods-item>
+      </cart>
+      <h3>Общая стоимость {{totalPrice}}</h3>
+
+      <button v-on:click="removeAllCart">Очистить корзину</button>
+
+    </header>
+
+    <main>
+      <search  v-on:search="searchHandler"></search> компонент  
+
+      <div class="goods-list" >
+        
+        <goods-item 
+          v-for="good in filtredGoods"
+          v-bind:title="good.title" 
+          v-bind:price="good.price"
+          v-bind:id="good.id"
+          v-on:add="addToCart"
+          >добавить</goods-item>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>  
+  <script src="script.js"></script>
+</body>
+</html>
