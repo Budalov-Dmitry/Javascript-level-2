@@ -10,7 +10,7 @@ app.listen(3000, () => {
 });
 
 
-app.use(express.static('../public'));
+app.use(express.static('../dist'));
 
 app.get('/data', (req, res) => {
     fs.readFile('./goodslist.json', 'utf-8', (err, data) => {
